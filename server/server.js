@@ -1,12 +1,14 @@
 const path = require('path');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const fs = require('fs')
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3042;
 const publicPath = path.join(__dirname, '..', 'build');
 const srcPath = path.join(__dirname, '..', 'src');
 
 app.use(express.static(publicPath));
+app.use(cors());
 
 app.get('/src/data', (req, res) => {
 
